@@ -26,7 +26,7 @@ Para que el proyecto sea funcional y seguro, he configurado estas variables de e
 ###  Erroes y soluciones
 Ha habido complicaciones, pero también he hayado las soluciones:
 
-1. **El Dialecto de Hibernate:** Al conectar con Supabase, Spring no reconocía el dialecto de la base de datos. Lo solucioné forzando `PostgreSQLDialect` en el `application-prod.yml`.
+1. **El Dialecto de Hibernate:** Al conectar con Supabase, Spring no reconocía el dialecto del dump de la base de datos. Lo solucioné descargandome la base de datos en texto plano.
 2. **Fallo conexión con Backend:** Desde el Frontend, al intentar conectar con el backend me daba un error, y era porque habia guardado en la variable de entorno acabada en '/', (con la barra final), y claro la URL al final era esta: (https://conflicttraker-pauojeda-adrianluque-main-production.up.railway.app/api/v1//conflicts).
 3. **SPA Routing (Error 404):** Al refrescar la página en un conflicto en Vercel me daba error 404. He creado el archivo **`vercel.json`** para que en caso de que se refresque la página, vuelva al **`index`**.
 4. **Seguridad CORS:** He cambiado los permisos (antes eran 'http://localhost/5173') y he configurado el `@CrossOrigin` con mi URL de Vercel para cumplir con los requisitos de seguridad en producción.
