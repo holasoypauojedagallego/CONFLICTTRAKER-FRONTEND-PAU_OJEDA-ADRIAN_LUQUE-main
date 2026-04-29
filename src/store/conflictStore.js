@@ -13,7 +13,7 @@ export const useConflictStore = defineStore('conflict', {
       this.loading = true
       this.error = null
       try {
-        const response = await axios.get('http://localhost:8080/api/v1/conflicts')
+        const response = await axios.get(`${API_URL}/api/v1/conflicts`)
         this.conflicts = response.data
       } catch (err) {
         this.error = 'Error de connexió amb la API. Revisa que el backend estigui encès.'
@@ -25,7 +25,7 @@ export const useConflictStore = defineStore('conflict', {
       this.loading = true
       this.error = null
       try {
-        const response = await axios.get(`http://localhost:8080/api/v1/conflicts/${id}`)
+        const response = await axios.get(`${API_URL}/api/v1/conflicts/${id}`)
         this.currentConflict = response.data
       } catch (err) {
         this.error = 'Error al carregar els detalls del conflicte.'
